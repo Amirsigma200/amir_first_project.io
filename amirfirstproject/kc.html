@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор идей</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="kc.html">Отзыв</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Генератор идей</h1>
+
+        <p>Выберите категорию и получите идею:</p>
+
+        <select id="category">
+            <option value="activity">Чем заняться сегодня?</option>
+            <option value="project">Идея для проекта</option>
+            <option value="recipe">Что приготовить?</option>
+            <option value="hobby">Новое хобби</option>
+        </select>
+
+        <button onclick="generateIdea()">Получить идею</button>
+
+        <h2>Ваша идея:</h2>
+        <p id="idea">Здесь появится идея...</p>
+
+        <script>
+            const ideas = {
+                activity: [
+                    "Сходите на прогулку в парк",
+                    "Попробуйте новую настольную игру",
+                    "Организуйте уборку дома под музыку"
+                ],
+                project: [
+                    "Создайте сайт с интересной идеей",
+                    "Снимите короткое видео",
+                    "Сделайте простую поделку из бумаги"
+                ],
+                recipe: [
+                    "Приготовьте домашние блинчики",
+                    "Сделайте смузи из банана и молока",
+                    "Запеките картофель с сыром"
+                ],
+                hobby: [
+                    "Попробуйте рисование",
+                    "Начните учить новый язык",
+                    "Соберите пазл"
+                ]
+            };
+
+            function generateIdea() {
+                const category = document.getElementById("category").value;
+                const categoryIdeas = ideas[category];
+                const randomIndex = Math.floor(Math.random() * categoryIdeas.length);
+                const randomIdea = categoryIdeas[randomIndex];
+
+                document.getElementById("idea").textContent = randomIdea;
+            }
+        </script>
+    </main>
+</body>
+</html>
